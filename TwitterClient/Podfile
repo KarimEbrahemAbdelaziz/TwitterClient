@@ -10,5 +10,6 @@ target 'TwitterClient' do
   pod 'SwiftyJSON'
   pod 'Sparrow/LaunchAnimation’, :git => 'https://github.com/IvanVorobei/Sparrow.git’
   pod 'RealmSwift'
+  pod 'TwitterKit'
 
 end

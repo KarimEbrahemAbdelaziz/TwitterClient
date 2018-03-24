@@ -7,12 +7,16 @@ PODS:
     - Realm (= 3.1.1)
   - Sparrow/LaunchAnimation (1.1.0)
   - SwiftyJSON (4.0.0)
+  - TwitterCore (3.1.0)
+  - TwitterKit (3.3.0):
+    - TwitterCore (>= 3.1.0)
 
 DEPENDENCIES:
   - OAuthSwift (~> 1.2.0)
   - RealmSwift
   - Sparrow/LaunchAnimation (from `https://github.com/IvanVorobei/Sparrow.git`)
   - SwiftyJSON
+  - TwitterKit
 
 EXTERNAL SOURCES:
   Sparrow:
@@ -29,7 +33,9 @@ SPEC CHECKSUMS:
   RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
   Sparrow: 86b8f0d7598dc52ff2b06bb1df05feb297d1821f
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
+  TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
 
-PODFILE CHECKSUM: a1d78d01a4522a3734f342ff69120572aad8a32b
+PODFILE CHECKSUM: 101278d16987f0ece2a65a223a14195d64da7de0
 
 COCOAPODS: 1.4.0
