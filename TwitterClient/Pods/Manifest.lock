@@ -1,0 +1,35 @@
+PODS:
+  - OAuthSwift (1.2.0)
+  - Realm (3.1.1):
+    - Realm/Headers (= 3.1.1)
+  - Realm/Headers (3.1.1)
+  - RealmSwift (3.1.1):
+    - Realm (= 3.1.1)
+  - Sparrow/LaunchAnimation (1.1.0)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - OAuthSwift (~> 1.2.0)
+  - RealmSwift
+  - Sparrow/LaunchAnimation (from `https://github.com/IvanVorobei/Sparrow.git`)
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  Sparrow:
+    :git: https://github.com/IvanVorobei/Sparrow.git
+
+CHECKOUT OPTIONS:
+  Sparrow:
+    :commit: d3becbdd5dbc982a53a461188ea35b818342a9ed
+    :git: https://github.com/IvanVorobei/Sparrow.git
+
+SPEC CHECKSUMS:
+  OAuthSwift: 7fd6855b8e4d58eb5a30d156ea9bed7a8aecd1ca
+  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
+  RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
+  Sparrow: 86b8f0d7598dc52ff2b06bb1df05feb297d1821f
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: a1d78d01a4522a3734f342ff69120572aad8a32b
+
+COCOAPODS: 1.4.0
