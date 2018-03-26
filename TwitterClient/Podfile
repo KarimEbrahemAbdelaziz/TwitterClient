@@ -6,10 +6,8 @@ target 'TwitterClient' do
   use_frameworks!
 
   # Pods for TwitterClient
-  pod 'OAuthSwift', '~> 1.2.0'
   pod 'SwiftyJSON'
   pod 'Sparrow/LaunchAnimation’, :git => 'https://github.com/IvanVorobei/Sparrow.git’
   pod 'RealmSwift'
-  pod 'TwitterKit'
 
 end

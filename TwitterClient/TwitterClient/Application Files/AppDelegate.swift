@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import Sparrow
-import TwitterKit
-import OAuthSwift
+import SwifteriOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,13 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UIApplication.shared.statusBarStyle = .lightContent
-        SPLaunchAnimation.asTwitter(onWindow: self.window!)
         
         return true
     }
-
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
+        Swifter.handleOpenURL(url)
+        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

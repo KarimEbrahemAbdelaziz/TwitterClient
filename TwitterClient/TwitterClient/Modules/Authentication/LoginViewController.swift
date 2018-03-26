@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import Accounts
-import TwitterKit
+import SafariServices
 
 class LoginViewController: UIViewController {
 
@@ -46,16 +45,30 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     @IBAction func LoginAction(_ sender: UIButton) {
-        APIManager.sharedInstance.login { (isLogined, error) in
-            if error != nil {
-                print("Error")
-                return
-            }
-            
-            if isLogined! {
-                print("Login Success")
+        TwitterManager.sharedInstance.isThereAccountSavedInSettings { (isThereIsSavedAccount, isAccessToAccountsGranted) in
+            if isThereIsSavedAccount! && isAccessToAccountsGranted! {
+                // Handle exist accounts saved on device
+                TwitterManager.sharedInstance.loginToSavedAccount(completion: { (isLogined) in
+                    if isLogined! {
+                        // Handle Login Success
+                    } else {
+                        // Handle Login Failed
+                    }
+                })
+            } else if !isThereIsSavedAccount! && isAccessToAccountsGranted! {
+                // Handle no saved accounts on device
+                TwitterManager.sharedInstance.loginWithNewAccount(presentFromView: self, completion: { (isLogined) in
+                    if isLogined! {
+                        // Handle Login Success
+                        print("LLogined")
+                    } else {
+                        // Handle Login Failed
+                        print("Login Fail")
+                    }
+                })
             } else {
-                print("Login Failed")
+                // No access granted to accounts from user
+                
             }
         }
     }
@@ -71,7 +84,13 @@ extension LoginViewController {
     
 }
 
-
+// MARK:- Safari Delegate
+extension LoginViewController: SFSafariViewControllerDelegate {
+    @available(iOS 9.0, *)
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
 
 
 

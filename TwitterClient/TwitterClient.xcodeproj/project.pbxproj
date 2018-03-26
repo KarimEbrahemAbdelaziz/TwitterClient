@@ -7,29 +7,97 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		438BA23120685D9E007F3A5C /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 438BA22A20685D91007F3A5C /* SwifteriOS.framework */; };
+		438BA23220685D9E007F3A5C /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 438BA22A20685D91007F3A5C /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		438BA23D20686899007F3A5C /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA23C20686899007F3A5C /* Helpers.swift */; };
+		438BA24220687364007F3A5C /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA24120687364007F3A5C /* CurrentUser.swift */; };
+		438BA2462068753D007F3A5C /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA2452068753D007F3A5C /* RealmConfig.swift */; };
+		438BA24820687545007F3A5C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA24720687545007F3A5C /* DBManager.swift */; };
 		43E2A18120667F5D00E21B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A18020667F5D00E21B72 /* AppDelegate.swift */; };
-		43E2A18320667F5D00E21B72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A18220667F5D00E21B72 /* ViewController.swift */; };
 		43E2A18620667F5D00E21B72 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18420667F5D00E21B72 /* Authentication.storyboard */; };
 		43E2A18820667F5D00E21B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18720667F5D00E21B72 /* Assets.xcassets */; };
 		43E2A18B20667F5D00E21B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18920667F5D00E21B72 /* LaunchScreen.storyboard */; };
 		43E2A19C2066959C00E21B72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A19B2066959C00E21B72 /* Constants.swift */; };
-		43E2A19E206697D900E21B72 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A19D206697D900E21B72 /* APIManager.swift */; };
+		43E2A19E206697D900E21B72 /* TwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A19D206697D900E21B72 /* TwitterManager.swift */; };
 		43E2A1AD2066BE6000E21B72 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A1AC2066BE6000E21B72 /* LoginViewController.swift */; };
 		43E2A1AF2066C04800E21B72 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A1AE2066C04800E21B72 /* UIView+Extensions.swift */; };
 		43E2A1B02066C19400E21B72 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18C20667F5D00E21B72 /* Info.plist */; };
 		78B02264484668F8A2AA1977 /* Pods_TwitterClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B6B32CDA67B0BDFA908048 /* Pods_TwitterClient.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		438BA22720685D91007F3A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 438BA21F20685D91007F3A5C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B300C1F1944AA1A00993175;
+			remoteInfo = SwifterDemoiOS;
+		};
+		438BA22920685D91007F3A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 438BA21F20685D91007F3A5C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B9F50EE1944A5AB00894629;
+			remoteInfo = SwifteriOS;
+		};
+		438BA22B20685D91007F3A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 438BA21F20685D91007F3A5C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B9F51131944A61D00894629;
+			remoteInfo = SwifterMac;
+		};
+		438BA22D20685D91007F3A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 438BA21F20685D91007F3A5C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B300C471944AECB00993175;
+			remoteInfo = SwifterDemoMac;
+		};
+		438BA22F20685D91007F3A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 438BA21F20685D91007F3A5C /* Swifter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6B4D5751C7BAC4500E06514;
+			remoteInfo = SwifterTests;
+		};
+		438BA23320685D9E007F3A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 438BA21F20685D91007F3A5C /* Swifter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B9F50ED1944A5AB00894629;
+			remoteInfo = SwifteriOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		438BA23520685D9F007F3A5C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				438BA23220685D9E007F3A5C /* SwifteriOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		438BA21F20685D91007F3A5C /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "../../../Downloads/Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
+		438BA23C20686899007F3A5C /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		438BA24120687364007F3A5C /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		438BA2452068753D007F3A5C /* RealmConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
+		438BA24720687545007F3A5C /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		43E2A17D20667F5D00E21B72 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E2A18020667F5D00E21B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		43E2A18220667F5D00E21B72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43E2A18520667F5D00E21B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		43E2A18720667F5D00E21B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43E2A18A20667F5D00E21B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43E2A18C20667F5D00E21B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43E2A19B2066959C00E21B72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		43E2A19D206697D900E21B72 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		43E2A19D206697D900E21B72 /* TwitterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterManager.swift; sourceTree = "<group>"; };
 		43E2A1AC2066BE6000E21B72 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		43E2A1AE2066C04800E21B72 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		50B03C6319286A7A584A5C88 /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -43,15 +111,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				78B02264484668F8A2AA1977 /* Pods_TwitterClient.framework in Frameworks */,
+				438BA23120685D9E007F3A5C /* SwifteriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		438BA22020685D91007F3A5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				438BA22820685D91007F3A5C /* SwifterDemoiOS.app */,
+				438BA22A20685D91007F3A5C /* SwifteriOS.framework */,
+				438BA22C20685D91007F3A5C /* SwifterMac.framework */,
+				438BA22E20685D91007F3A5C /* SwifterDemoMac.app */,
+				438BA23020685D91007F3A5C /* SwifterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		438BA24320687515007F3A5C /* Twitter API */ = {
+			isa = PBXGroup;
+			children = (
+				43E2A19B2066959C00E21B72 /* Constants.swift */,
+				43E2A19D206697D900E21B72 /* TwitterManager.swift */,
+			);
+			path = "Twitter API";
+			sourceTree = "<group>";
+		};
+		438BA24420687521007F3A5C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				438BA2452068753D007F3A5C /* RealmConfig.swift */,
+				438BA24720687545007F3A5C /* DBManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		43E2A17420667F5D00E21B72 = {
 			isa = PBXGroup;
 			children = (
+				438BA21F20685D91007F3A5C /* Swifter.xcodeproj */,
 				43E2A17F20667F5D00E21B72 /* TwitterClient */,
 				43E2A17E20667F5D00E21B72 /* Products */,
 				9F0048B557A9B243D07EF040 /* Pods */,
@@ -94,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				43E2A1AB2066BE4900E21B72 /* Authentication */,
-				43E2A18220667F5D00E21B72 /* ViewController.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -102,6 +201,7 @@
 		43E2A19420667FD600E21B72 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				438BA24120687364007F3A5C /* CurrentUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,8 +209,8 @@
 		43E2A19520667FDA00E21B72 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				43E2A19B2066959C00E21B72 /* Constants.swift */,
-				43E2A19D206697D900E21B72 /* APIManager.swift */,
+				438BA24420687521007F3A5C /* Realm */,
+				438BA24320687515007F3A5C /* Twitter API */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -152,6 +252,7 @@
 		43E2A19A20667FFC00E21B72 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				438BA23C20686899007F3A5C /* Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -194,10 +295,12 @@
 				43E2A17B20667F5D00E21B72 /* Resources */,
 				8A39C52F5341E2D6D94DFB22 /* [CP] Embed Pods Frameworks */,
 				F0BB942FBBAE252FB6B45BAF /* [CP] Copy Pods Resources */,
+				438BA23520685D9F007F3A5C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				438BA23420685D9E007F3A5C /* PBXTargetDependency */,
 			);
 			name = TwitterClient;
 			productName = TwitterClient;
@@ -231,12 +334,56 @@
 			mainGroup = 43E2A17420667F5D00E21B72;
 			productRefGroup = 43E2A17E20667F5D00E21B72 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 438BA22020685D91007F3A5C /* Products */;
+					ProjectRef = 438BA21F20685D91007F3A5C /* Swifter.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				43E2A17C20667F5D00E21B72 /* TwitterClient */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		438BA22820685D91007F3A5C /* SwifterDemoiOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwifterDemoiOS.app;
+			remoteRef = 438BA22720685D91007F3A5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		438BA22A20685D91007F3A5C /* SwifteriOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwifteriOS.framework;
+			remoteRef = 438BA22920685D91007F3A5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		438BA22C20685D91007F3A5C /* SwifterMac.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwifterMac.framework;
+			remoteRef = 438BA22B20685D91007F3A5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		438BA22E20685D91007F3A5C /* SwifterDemoMac.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwifterDemoMac.app;
+			remoteRef = 438BA22D20685D91007F3A5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		438BA23020685D91007F3A5C /* SwifterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwifterTests.xctest;
+			remoteRef = 438BA22F20685D91007F3A5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		43E2A17B20667F5D00E21B72 /* Resources */ = {
@@ -260,23 +407,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Sparrow/Sparrow.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparrow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -329,15 +470,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E2A1AF2066C04800E21B72 /* UIView+Extensions.swift in Sources */,
+				438BA23D20686899007F3A5C /* Helpers.swift in Sources */,
 				43E2A1AD2066BE6000E21B72 /* LoginViewController.swift in Sources */,
-				43E2A19E206697D900E21B72 /* APIManager.swift in Sources */,
-				43E2A18320667F5D00E21B72 /* ViewController.swift in Sources */,
+				438BA2462068753D007F3A5C /* RealmConfig.swift in Sources */,
+				438BA24820687545007F3A5C /* DBManager.swift in Sources */,
+				43E2A19E206697D900E21B72 /* TwitterManager.swift in Sources */,
 				43E2A18120667F5D00E21B72 /* AppDelegate.swift in Sources */,
+				438BA24220687364007F3A5C /* CurrentUser.swift in Sources */,
 				43E2A19C2066959C00E21B72 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		438BA23420685D9E007F3A5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwifteriOS;
+			targetProxy = 438BA23320685D9E007F3A5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		43E2A18420667F5D00E21B72 /* Authentication.storyboard */ = {
@@ -470,9 +622,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 50B03C6319286A7A584A5C88 /* Pods-TwitterClient.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FX2Z63PGT5;
 				INFOPLIST_FILE = "$(SRCROOT)/TwitterClient/Application Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karimebrahem.TwitterClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -485,9 +640,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9FE8F2AAA4E3B705FF356CF /* Pods-TwitterClient.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FX2Z63PGT5;
 				INFOPLIST_FILE = "$(SRCROOT)/TwitterClient/Application Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karimebrahem.TwitterClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
