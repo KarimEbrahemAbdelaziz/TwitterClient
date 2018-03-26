@@ -67,11 +67,17 @@ class TwitterManager {
     
     func loginWithNewAccount(presentFromView: UIViewController, completion:  @escaping (_ :Bool?)->Void) {
         let url = URL(string: "swifter://success")!
-        self.swifter.authorize(with: url, presentFrom: presentFromView, success: { _, _ in
-            completion(true)
-        },failure: { error in
+        self.swifter.authorize(with: url, presentFrom: presentFromView, success: { [unowned self] (oauthAccessToken, _) in
+            self.saveAccountToSettings(accessToken: oauthAccessToken!, completion: { (isSaved) in
+                if isSaved! {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            })
+        }) { (error) in
             completion(false)
-        })
+        }
     }
     
 }
@@ -88,6 +94,23 @@ extension TwitterManager {
             }
             
             completion(true)
+        }
+    }
+    
+    private func saveAccountToSettings(accessToken: Credential.OAuthAccessToken, completion:  @escaping (_ :Bool?)->Void) {
+        let credential = ACAccountCredential(oAuthToken: accessToken.key, tokenSecret: accessToken.secret)
+        let accountType = self.accountType
+        let newAccount = ACAccount(accountType: accountType)
+        newAccount?.credential = credential
+        
+        self.accountsStore.saveAccount(newAccount) { (isSaved, error) in
+            if isSaved {
+                // Handle Account Saved Successfull
+                completion(true)
+            } else {
+                // Handle Account Not Saved
+                completion(false)
+            }
         }
     }
     
