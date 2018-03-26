@@ -232,7 +232,7 @@
             
             let animationGroup = CAAnimationGroup()
             animationGroup.duration = 2.7
-            animationGroup.repeatCount = 1000
+            animationGroup.repeatCount = 2
             animationGroup.animations = [pulse1]
             
             self.layer.add(animationGroup, forKey: "pulse")

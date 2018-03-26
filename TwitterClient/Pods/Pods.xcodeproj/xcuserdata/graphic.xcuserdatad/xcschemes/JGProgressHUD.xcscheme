@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3520254196ABB78E92976633265465D2"
-               BlueprintName = "Sparrow"
+               BlueprintIdentifier = "9F2C48CA562773165FC94C4BDA600CB8"
+               BlueprintName = "JGProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Sparrow.framework">
+               BuildableName = "JGProgressHUD.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

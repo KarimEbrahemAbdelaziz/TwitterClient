@@ -11,13 +11,16 @@ import SafariServices
 
 class LoginViewController: UIViewController {
 
+    // MARK:- IBOutlets
     @IBOutlet weak var twitterLogo: UIImageView!
+    
+    // MARK:- Prop
+    let loadingHud = LoadingHud.sharedLoadingHud
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        addPulseAnimation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +33,13 @@ class LoginViewController: UIViewController {
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Add animation to twitter logo
+        addPulseAnimation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,14 +55,19 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     @IBAction func LoginAction(_ sender: UIButton) {
-        TwitterManager.sharedInstance.isThereAccountSavedInSettings { (isThereIsSavedAccount, isAccessToAccountsGranted) in
+        loadingHud.show(in: self.view)
+        TwitterManager.sharedInstance.isThereAccountSavedInSettings { [unowned self] (isThereIsSavedAccount, isAccessToAccountsGranted) in
             if isThereIsSavedAccount! && isAccessToAccountsGranted! {
                 // Handle exist accounts saved on device
-                TwitterManager.sharedInstance.loginToSavedAccount(completion: { (isLogined) in
+                TwitterManager.sharedInstance.loginToSavedAccount(completion: { [unowned self] (isLogined) in
                     if isLogined! {
                         // Handle Login Success
+                        self.loadingHud.dismiss()
+                        print("Logined")
                     } else {
                         // Handle Login Failed
+                        self.loadingHud.dismiss()
+                        print("Login Fail")
                     }
                 })
             } else if !isThereIsSavedAccount! && isAccessToAccountsGranted! {
@@ -60,15 +75,19 @@ extension LoginViewController {
                 TwitterManager.sharedInstance.loginWithNewAccount(presentFromView: self, completion: { (isLogined) in
                     if isLogined! {
                         // Handle Login Success
-                        print("LLogined")
+                        self.loadingHud.dismiss()
+                        print("Logined")
                     } else {
                         // Handle Login Failed
+                        self.loadingHud.dismiss()
                         print("Login Fail")
                     }
                 })
             } else {
                 // No access granted to accounts from user
-                
+                self.loadingHud.dismiss()
+                let alert = Helpers.alert(title: "Access Error", message: "There are no Twitter accounts configured. You can add or create a Twitter account in Settings.")
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

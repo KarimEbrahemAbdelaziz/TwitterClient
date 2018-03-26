@@ -13,6 +13,7 @@
 		438BA24220687364007F3A5C /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA24120687364007F3A5C /* CurrentUser.swift */; };
 		438BA2462068753D007F3A5C /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA2452068753D007F3A5C /* RealmConfig.swift */; };
 		438BA24820687545007F3A5C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA24720687545007F3A5C /* DBManager.swift */; };
+		438BA24B206883F1007F3A5C /* LoadingHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA24A206883F1007F3A5C /* LoadingHud.swift */; };
 		43E2A18120667F5D00E21B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A18020667F5D00E21B72 /* AppDelegate.swift */; };
 		43E2A18620667F5D00E21B72 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18420667F5D00E21B72 /* Authentication.storyboard */; };
 		43E2A18820667F5D00E21B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18720667F5D00E21B72 /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		438BA24120687364007F3A5C /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		438BA2452068753D007F3A5C /* RealmConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		438BA24720687545007F3A5C /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		438BA24A206883F1007F3A5C /* LoadingHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHud.swift; sourceTree = "<group>"; };
 		43E2A17D20667F5D00E21B72 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E2A18020667F5D00E21B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E2A18520667F5D00E21B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				438BA23C20686899007F3A5C /* Helpers.swift */,
+				438BA24A206883F1007F3A5C /* LoadingHud.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Sparrow/Sparrow.framework",
@@ -414,6 +418,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparrow.framework",
@@ -477,6 +482,7 @@
 				43E2A19E206697D900E21B72 /* TwitterManager.swift in Sources */,
 				43E2A18120667F5D00E21B72 /* AppDelegate.swift in Sources */,
 				438BA24220687364007F3A5C /* CurrentUser.swift in Sources */,
+				438BA24B206883F1007F3A5C /* LoadingHud.swift in Sources */,
 				43E2A19C2066959C00E21B72 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
