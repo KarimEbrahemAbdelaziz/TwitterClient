@@ -63,11 +63,27 @@
                     <navigationItem key="navigationItem" id="ebF-9b-uNQ"/>
                     <connections>
                         <outlet property="twitterLogo" destination="Ihd-0z-2eE" id="pmQ-Ub-B2e"/>
+                        <segue destination="RFh-YA-l5g" kind="show" identifier="HomeView_Segue" id="LQ5-No-vdu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="115.59220389805098"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Rhx-M4-d2Z">
+            <objects>
+                <viewController id="RFh-YA-l5g" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4WX-SN-8CB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="NDp-bs-Ddz"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W55-zR-eky" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b8l-2Z-UMM">

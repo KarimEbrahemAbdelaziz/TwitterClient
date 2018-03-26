@@ -11,7 +11,13 @@ import SwiftyJSON
 import Accounts
 import SwifteriOS
 
-class TwitterManager {
+protocol LoginTwitterApiManager {
+    func isThereAccountSavedInSettings(completion:  @escaping (_ isThereAccountSaved :Bool?, _ isAccessGranted: Bool?)->Void)
+    func loginToSavedAccount(completion:  @escaping (_ :Bool?)->Void)
+    func loginWithNewAccount(presentFromView: UIViewController, completion:  @escaping (_ :Bool?)->Void)
+}
+
+class TwitterManager: LoginTwitterApiManager {
     
     private var swifter: Swifter
     private var accountsStore: ACAccountStore

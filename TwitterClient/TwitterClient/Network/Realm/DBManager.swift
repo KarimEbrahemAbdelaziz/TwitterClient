@@ -9,7 +9,11 @@
 import Foundation
 import RealmSwift
 
-class DBManager {
+protocol LoginDatabaseManager {
+    func saveToDatabase(object: Object)
+}
+
+class DBManager: LoginDatabaseManager {
     
     private var database: Realm
     static let sharedInstance = DBManager()
@@ -31,7 +35,6 @@ class DBManager {
     func saveToDatabase(object: Object) {
         try! database.write {
             database.add(object, update: true)
-            print("Saved Success")
         }
     }
     

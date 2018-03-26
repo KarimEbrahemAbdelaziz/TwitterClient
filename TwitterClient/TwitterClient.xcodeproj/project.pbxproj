@@ -14,8 +14,12 @@
 		438BA2462068753D007F3A5C /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA2452068753D007F3A5C /* RealmConfig.swift */; };
 		438BA24820687545007F3A5C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA24720687545007F3A5C /* DBManager.swift */; };
 		438BA24B206883F1007F3A5C /* LoadingHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA24A206883F1007F3A5C /* LoadingHud.swift */; };
+		438BA2512068966F007F3A5C /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA2502068966F007F3A5C /* LoginConfigurator.swift */; };
+		438BA2532068968E007F3A5C /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA2522068968E007F3A5C /* LoginPresenter.swift */; };
+		438BA2552068969D007F3A5C /* LoginViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA2542068969D007F3A5C /* LoginViewRouter.swift */; };
+		438BA25720689B03007F3A5C /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA25620689B03007F3A5C /* ViewRouter.swift */; };
 		43E2A18120667F5D00E21B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A18020667F5D00E21B72 /* AppDelegate.swift */; };
-		43E2A18620667F5D00E21B72 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18420667F5D00E21B72 /* Authentication.storyboard */; };
+		43E2A18620667F5D00E21B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18420667F5D00E21B72 /* Main.storyboard */; };
 		43E2A18820667F5D00E21B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18720667F5D00E21B72 /* Assets.xcassets */; };
 		43E2A18B20667F5D00E21B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18920667F5D00E21B72 /* LaunchScreen.storyboard */; };
 		43E2A19C2066959C00E21B72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A19B2066959C00E21B72 /* Constants.swift */; };
@@ -92,9 +96,13 @@
 		438BA2452068753D007F3A5C /* RealmConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		438BA24720687545007F3A5C /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		438BA24A206883F1007F3A5C /* LoadingHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHud.swift; sourceTree = "<group>"; };
+		438BA2502068966F007F3A5C /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
+		438BA2522068968E007F3A5C /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		438BA2542068969D007F3A5C /* LoginViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewRouter.swift; sourceTree = "<group>"; };
+		438BA25620689B03007F3A5C /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		43E2A17D20667F5D00E21B72 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E2A18020667F5D00E21B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		43E2A18520667F5D00E21B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
+		43E2A18520667F5D00E21B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43E2A18720667F5D00E21B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43E2A18A20667F5D00E21B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43E2A18C20667F5D00E21B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -187,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				43E2A18920667F5D00E21B72 /* LaunchScreen.storyboard */,
-				43E2A18420667F5D00E21B72 /* Authentication.storyboard */,
+				43E2A18420667F5D00E21B72 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 			children = (
 				438BA23C20686899007F3A5C /* Helpers.swift */,
 				438BA24A206883F1007F3A5C /* LoadingHud.swift */,
+				438BA25620689B03007F3A5C /* ViewRouter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -264,6 +273,9 @@
 			isa = PBXGroup;
 			children = (
 				43E2A1AC2066BE6000E21B72 /* LoginViewController.swift */,
+				438BA2502068966F007F3A5C /* LoginConfigurator.swift */,
+				438BA2522068968E007F3A5C /* LoginPresenter.swift */,
+				438BA2542068969D007F3A5C /* LoginViewRouter.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -396,7 +408,7 @@
 				43E2A1B02066C19400E21B72 /* Info.plist in Resources */,
 				43E2A18B20667F5D00E21B72 /* LaunchScreen.storyboard in Resources */,
 				43E2A18820667F5D00E21B72 /* Assets.xcassets in Resources */,
-				43E2A18620667F5D00E21B72 /* Authentication.storyboard in Resources */,
+				43E2A18620667F5D00E21B72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,8 +486,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438BA2532068968E007F3A5C /* LoginPresenter.swift in Sources */,
+				438BA25720689B03007F3A5C /* ViewRouter.swift in Sources */,
 				43E2A1AF2066C04800E21B72 /* UIView+Extensions.swift in Sources */,
 				438BA23D20686899007F3A5C /* Helpers.swift in Sources */,
+				438BA2512068966F007F3A5C /* LoginConfigurator.swift in Sources */,
 				43E2A1AD2066BE6000E21B72 /* LoginViewController.swift in Sources */,
 				438BA2462068753D007F3A5C /* RealmConfig.swift in Sources */,
 				438BA24820687545007F3A5C /* DBManager.swift in Sources */,
@@ -483,6 +498,7 @@
 				43E2A18120667F5D00E21B72 /* AppDelegate.swift in Sources */,
 				438BA24220687364007F3A5C /* CurrentUser.swift in Sources */,
 				438BA24B206883F1007F3A5C /* LoadingHud.swift in Sources */,
+				438BA2552068969D007F3A5C /* LoginViewRouter.swift in Sources */,
 				43E2A19C2066959C00E21B72 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,12 +514,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		43E2A18420667F5D00E21B72 /* Authentication.storyboard */ = {
+		43E2A18420667F5D00E21B72 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				43E2A18520667F5D00E21B72 /* Base */,
 			);
-			name = Authentication.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		43E2A18920667F5D00E21B72 /* LaunchScreen.storyboard */ = {
