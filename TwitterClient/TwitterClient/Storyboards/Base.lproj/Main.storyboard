@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="476" y="115.59220389805098"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="Rhx-M4-d2Z">
             <objects>
-                <viewController id="RFh-YA-l5g" sceneMemberID="viewController">
+                <viewController id="RFh-YA-l5g" customClass="HomeViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4WX-SN-8CB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
