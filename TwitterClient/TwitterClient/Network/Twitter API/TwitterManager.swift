@@ -23,6 +23,7 @@ class TwitterManager: LoginTwitterApiManager {
     private var accountsStore: ACAccountStore
     private var accountType: ACAccountType
     private var randomAccount: ACAccount
+    private var hasPermission: Bool
     
     static let sharedInstance = TwitterManager()
     
@@ -32,6 +33,7 @@ class TwitterManager: LoginTwitterApiManager {
         self.accountsStore = ACAccountStore()
         self.accountType = accountsStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
         self.randomAccount = ACAccount()
+        hasPermission = false
     }
     
     func isThereAccountSavedInSettings(completion:  @escaping (_ isThereAccountSaved :Bool?, _ isAccessGranted: Bool?)->Void) {
@@ -74,13 +76,21 @@ class TwitterManager: LoginTwitterApiManager {
     func loginWithNewAccount(presentFromView: UIViewController, completion:  @escaping (_ :Bool?)->Void) {
         let url = URL(string: "swifter://success")!
         self.swifter.authorize(with: url, presentFrom: presentFromView, success: { [unowned self] (oauthAccessToken, _) in
-            self.saveAccountToSettings(accessToken: oauthAccessToken!, completion: { (isSaved) in
-                if isSaved! {
-                    completion(true)
-                } else {
-                    completion(false)
-                }
-            })
+            
+            if self.hasPermission {
+                // Handle has access to AccountStore in settings or on real device
+                self.saveAccountToSettings(accessToken: oauthAccessToken!, completion: { (isSaved) in
+                    if isSaved! {
+                        completion(true)
+                    } else {
+                        completion(false)
+                    }
+                })
+            } else {
+                // Handle has not access to AccountStore or on simulator
+                completion(true)
+            }
+            
         }) { (error) in
             completion(false)
         }
@@ -93,12 +103,14 @@ extension TwitterManager {
     
     private func checkIfApplicationHasAccessToAccounts(completion:  @escaping (_ :Bool?)->Void) {
         // Prompt the user for permission to their twitter account stored in the phone's settings
-        accountsStore.requestAccessToAccounts(with: accountType, options: nil) { granted, error in
+        accountsStore.requestAccessToAccounts(with: accountType, options: nil) { [unowned self] granted, error in
             guard granted else {
+                self.hasPermission = false
                 completion(false)
                 return
             }
             
+            self.hasPermission = true
             completion(true)
         }
     }

@@ -122,8 +122,7 @@ class LoginPresenterImplementation: LoginPresenter {
     }
     
     fileprivate func handleNoAccess() {
-        self.router.dismissLoadingHud()
-        self.router.presentAlert(title: "Access Error", message: "There are no Twitter accounts configured. You can add or create a Twitter account in Settings.")
+        handleNoAccountOnDeviceLogin()
     }
     
 }
