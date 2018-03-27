@@ -119,7 +119,7 @@ class TwitterManager: LoginTwitterApiManager, UserInformationApiManager {
     }
     
     func getCurrentUserFollowers(userId: String, completion:  @escaping (_ : [Follower]?, _: Error?)->Void) {
-        swifter.getUserFollowers(for: .id(userId), cursor: nil, count: nil, skipStatus: nil, includeUserEntities: nil, success: { (followersObject, _, _) in
+        swifter.getUserFollowers(for: .id(userId), cursor: nil, count: Constants.UserNumbers.numberOfFollowers, skipStatus: nil, includeUserEntities: nil, success: { (followersObject, _, _) in
             
             var followers = [Follower]()
             let followersArray = followersObject.array
@@ -143,7 +143,7 @@ class TwitterManager: LoginTwitterApiManager, UserInformationApiManager {
     }
     
     func getUserLatestTweets(userId: String, completion:  @escaping (_ : [Tweet]?, _: Error?)->Void) {
-        swifter.getTimeline(for: userId, count: 10, sinceID: nil, maxID: nil, trimUser: nil, contributorDetails: nil, includeEntities: nil, tweetMode: .default, success: { (tweetsObject) in
+        swifter.getTimeline(for: userId, count: Constants.UserNumbers.numberOfTweets, sinceID: nil, maxID: nil, trimUser: nil, contributorDetails: nil, includeEntities: nil, tweetMode: .default, success: { (tweetsObject) in
             
             var tweets = [Tweet]()
             let tweetsArray = tweetsObject.array
