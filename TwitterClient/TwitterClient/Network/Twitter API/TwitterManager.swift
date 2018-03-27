@@ -17,7 +17,11 @@ protocol LoginTwitterApiManager {
     func loginWithNewAccount(presentFromView: UIViewController, completion:  @escaping (_ :Bool?)->Void)
 }
 
-class TwitterManager: LoginTwitterApiManager {
+protocol UserInformationApiManager {
+    func getCurrentUserInformation(completion:  @escaping (_ : CurrentUser?, _: Error?)->Void)
+}
+
+class TwitterManager: LoginTwitterApiManager, UserInformationApiManager {
     
     private var swifter: Swifter
     private var accountsStore: ACAccountStore
@@ -93,6 +97,23 @@ class TwitterManager: LoginTwitterApiManager {
             
         }) { (error) in
             completion(false)
+        }
+    }
+    
+    func getCurrentUserInformation(completion:  @escaping (_ : CurrentUser?, _: Error?)->Void) {
+        swifter.verifyAccountCredentials(includeEntities: false, skipStatus: false, success: { (userObject) in
+            // Get Cuurent Loged in user information
+            let id = userObject["id_str"].string!
+            let description = userObject["description"].string!
+            let name = userObject["name"].string!
+            let friendsCount = userObject["friends_count"].integer!
+            let followersCount = userObject["followers_count"].integer!
+            let currentUser = CurrentUser(userId: id, userDescription: description, userName: name, userFriendsCount: friendsCount, userFollowersCount: followersCount)
+            
+            completion(currentUser, nil)
+            
+        }) { (error) in
+            completion(nil, error)
         }
     }
     

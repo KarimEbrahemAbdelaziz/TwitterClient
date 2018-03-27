@@ -32,3 +32,16 @@ class CurrentUser: Object {
     }
     
 }
+
+// MARK:- Static Function That make Code Easier :)
+extension CurrentUser {
+    
+    static func getCurrentUserFromDatabase() -> CurrentUser {
+        let currentUser = DBManager.sharedInstance.getAllFromDatabase(ofType: self).first!
+        return currentUser
+    }
+    
+}
+
+
+

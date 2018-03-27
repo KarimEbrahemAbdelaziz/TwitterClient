@@ -11,6 +11,7 @@ import RealmSwift
 
 protocol LoginDatabaseManager {
     func saveToDatabase(object: Object)
+    func resetDatabase()
 }
 
 class DBManager: LoginDatabaseManager {
@@ -38,7 +39,7 @@ class DBManager: LoginDatabaseManager {
         }
     }
     
-    func resetDatabase()  {
+    func resetDatabase() {
         try! database.write {
             database.deleteAll()
         }

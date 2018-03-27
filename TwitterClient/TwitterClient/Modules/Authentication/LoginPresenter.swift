@@ -33,17 +33,20 @@ class LoginPresenterImplementation: LoginPresenter {
     fileprivate weak var view: LoginView?
     internal let router: LoginViewRouter
     fileprivate let realmDBManager: LoginDatabaseManager
-    fileprivate let twitterAPIManager: LoginTwitterApiManager
+    fileprivate let twitterLoginAPIManager: LoginTwitterApiManager
+    fileprivate let twitterUserInformationAPIManager: UserInformationApiManager
     
     // Normally add model here and would be file private as well
     
     init(view: LoginView,
          realmDBManager: LoginDatabaseManager,
-         twitterAPIManager: LoginTwitterApiManager,
+         twitterLoginAPIManager: LoginTwitterApiManager,
+         twitterUserInformationAPIManager: UserInformationApiManager,
          router: LoginViewRouter) {
         self.view = view
         self.realmDBManager = realmDBManager
-        self.twitterAPIManager = twitterAPIManager
+        self.twitterLoginAPIManager = twitterLoginAPIManager
+        self.twitterUserInformationAPIManager = twitterUserInformationAPIManager
         self.router = router
     }
     
@@ -75,7 +78,7 @@ class LoginPresenterImplementation: LoginPresenter {
     }
     
     func login() {
-        twitterAPIManager.isThereAccountSavedInSettings { [unowned self] (isThereIsSavedAccount, isAccessToAccountsGranted) in
+        twitterLoginAPIManager.isThereAccountSavedInSettings { [unowned self] (isThereIsSavedAccount, isAccessToAccountsGranted) in
             if isThereIsSavedAccount! && isAccessToAccountsGranted! {
                 // Handle exist accounts saved on device
                 self.handleExistAccountOnDeviceLogin()
@@ -94,11 +97,10 @@ class LoginPresenterImplementation: LoginPresenter {
     // MARK:- Private Functions
     
     fileprivate func handleExistAccountOnDeviceLogin() {
-        twitterAPIManager.loginToSavedAccount(completion: { [unowned self] (isLogined) in
+        twitterLoginAPIManager.loginToSavedAccount(completion: { [unowned self] (isLogined) in
             if isLogined! {
-                // Handle Login Success
-                self.router.dismissLoadingHud()
-                self.router.presentHomeView()
+                // Save current user data to Realm Database
+                self.saveUserInfoToLocalDatabase()
             } else {
                 // Handle Login Failed
                 self.router.dismissLoadingHud()
@@ -108,11 +110,10 @@ class LoginPresenterImplementation: LoginPresenter {
     }
     
     fileprivate func handleNoAccountOnDeviceLogin() {
-        twitterAPIManager.loginWithNewAccount(presentFromView: self.view as! UIViewController, completion: { (isLogined) in
+        twitterLoginAPIManager.loginWithNewAccount(presentFromView: self.view as! UIViewController, completion: { [unowned self] (isLogined) in
             if isLogined! {
-                // Handle Login Success
-                self.router.dismissLoadingHud()
-                self.router.presentHomeView()
+                // Save current user data to Realm Database
+                self.saveUserInfoToLocalDatabase()
             } else {
                 // Handle Login Failed
                 self.router.dismissLoadingHud()
@@ -123,6 +124,23 @@ class LoginPresenterImplementation: LoginPresenter {
     
     fileprivate func handleNoAccess() {
         handleNoAccountOnDeviceLogin()
+    }
+    
+    fileprivate func saveUserInfoToLocalDatabase() {
+        twitterUserInformationAPIManager.getCurrentUserInformation { [unowned self] (currentUser, error) in
+            if error != nil {
+                self.router.presentAlert(title: "Connection Error", message: "Can't get user information from twitter. Please try again later.")
+                return
+            }
+            
+            self.realmDBManager.resetDatabase()
+            self.realmDBManager.saveToDatabase(object: currentUser!)
+            
+            // Handle Login Success
+            self.router.dismissLoadingHud()
+            // Navigate to HomeVC
+            self.router.presentHomeView()
+        }
     }
     
 }

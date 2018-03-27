@@ -17,12 +17,14 @@ class LoginConfiguratorImplementation: LoginConfigurator {
     func configure(loginViewController: LoginViewController) {
         
         let realmDatabaseManager = DBManager.sharedInstance
-        let twitterAPIManager = TwitterManager.sharedInstance
+        let twitterLoginAPIManager = TwitterManager.sharedInstance
+        let twitterUserInformationAPIManager = TwitterManager.sharedInstance
         let router = LoginViewRouterImplementation(loginViewController: loginViewController)
         
         let presenter = LoginPresenterImplementation(view: loginViewController,
                                                      realmDBManager: realmDatabaseManager,
-                                                     twitterAPIManager: twitterAPIManager,
+                                                     twitterLoginAPIManager: twitterLoginAPIManager,
+                                                     twitterUserInformationAPIManager: twitterUserInformationAPIManager,
                                                      router: router)
         
         loginViewController.presenter = presenter
