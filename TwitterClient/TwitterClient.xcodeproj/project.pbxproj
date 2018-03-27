@@ -28,6 +28,7 @@
 		43F34C1C2069D06B00DFE080 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F34C1B2069D06B00DFE080 /* HomeViewController.swift */; };
 		43F34C452069D2B000DFE080 /* SwifteriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F34C3E2069D2A500DFE080 /* SwifteriOS.framework */; };
 		43F34C462069D2B000DFE080 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43F34C3E2069D2A500DFE080 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		43F34C4A2069EA7200DFE080 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F34C492069EA7200DFE080 /* Follower.swift */; };
 		78B02264484668F8A2AA1977 /* Pods_TwitterClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B6B32CDA67B0BDFA908048 /* Pods_TwitterClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		43E2A1AE2066C04800E21B72 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		43F34C1B2069D06B00DFE080 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		43F34C332069D2A500DFE080 /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
+		43F34C492069EA7200DFE080 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		50B03C6319286A7A584A5C88 /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 		91B6B32CDA67B0BDFA908048 /* Pods_TwitterClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FE8F2AAA4E3B705FF356CF /* Pods-TwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				438BA24120687364007F3A5C /* CurrentUser.swift */,
+				43F34C492069EA7200DFE080 /* Follower.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				438BA2532068968E007F3A5C /* LoginPresenter.swift in Sources */,
 				438BA25720689B03007F3A5C /* ViewRouter.swift in Sources */,
 				43E2A1AF2066C04800E21B72 /* UIView+Extensions.swift in Sources */,
+				43F34C4A2069EA7200DFE080 /* Follower.swift in Sources */,
 				438BA23D20686899007F3A5C /* Helpers.swift in Sources */,
 				438BA2512068966F007F3A5C /* LoginConfigurator.swift in Sources */,
 				43F34C1C2069D06B00DFE080 /* HomeViewController.swift in Sources */,
