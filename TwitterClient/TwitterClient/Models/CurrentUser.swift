@@ -17,6 +17,7 @@ class CurrentUser: Object {
     @objc dynamic var userName = ""
     @objc dynamic var userFriendsCount = 0
     @objc dynamic var userFollowersCount = 0
+    var followers = List<Follower>()
     
     convenience required init(userId: String, userDescription: String, userName: String, userFriendsCount: Int, userFollowersCount: Int) {
         self.init()
