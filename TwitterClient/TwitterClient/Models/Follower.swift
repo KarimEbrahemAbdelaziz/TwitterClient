@@ -14,14 +14,18 @@ class Follower: Object {
     
     @objc dynamic var followerId = ""
     @objc dynamic var followerProfileImage = ""
+    @objc dynamic var followerBackgroundImage = ""
     @objc dynamic var followerName = ""
     @objc dynamic var followerHandle = ""
     @objc dynamic var followerBio = ""
     
-    convenience required init(followerId: String, followerProfileImage: String, followerName: String, followerHandle: String, followerBio: String) {
+    convenience required init(followerId: String, followerProfileImage: String, followerBackgroundImage: String?, followerName: String, followerHandle: String, followerBio: String) {
         self.init()
         self.followerId = followerId
         self.followerProfileImage = followerProfileImage
+        if followerBackgroundImage != nil {
+            self.followerBackgroundImage = followerBackgroundImage!
+        }
         self.followerName = followerName
         self.followerHandle = followerHandle
         self.followerBio = followerBio

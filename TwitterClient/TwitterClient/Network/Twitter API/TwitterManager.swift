@@ -126,16 +126,39 @@ class TwitterManager: LoginTwitterApiManager, UserInformationApiManager {
             let _ = followersArray.map({
                 $0.map({ follower in
                     let id = follower["id_str"].string!
-                    let imageUrl = follower["profile_image_url"].string!
+                    let profileImageUrl = follower["profile_image_url"].string!
+                    let backgroundImageUrl = follower["profile_background_image_url"].string ?? nil
                     let name = follower["name"].string!
                     let handle = follower["screen_name"].string!
                     let bio = follower["description"].string!
-                    let followeer = Follower(followerId: id, followerProfileImage: imageUrl, followerName: name, followerHandle: handle, followerBio: bio)
+                    let followeer = Follower(followerId: id, followerProfileImage: profileImageUrl, followerBackgroundImage: backgroundImageUrl, followerName: name, followerHandle: handle, followerBio: bio)
                     followers.append(followeer)
                 })
             })
             
             completion(followers, nil)
+        }) { (error) in
+            completion(nil, error)
+        }
+    }
+    
+    func getUserLatestTweets(userId: String, completion:  @escaping (_ : [Tweet]?, _: Error?)->Void) {
+        swifter.getTimeline(for: userId, count: 10, sinceID: nil, maxID: nil, trimUser: nil, contributorDetails: nil, includeEntities: nil, tweetMode: .default, success: { (tweetsObject) in
+            
+            var tweets = [Tweet]()
+            let tweetsArray = tweetsObject.array
+            let _ = tweetsArray.map({
+                $0.map({ tweet in
+                    let id = tweet["id_str"].string!
+                    let text = tweet["text"].string!
+                    let createdAt = tweet["created_at"].string!
+                    let tweeet = Tweet(tweetId: id, tweetText: text, tweetCreatedAt: createdAt)
+                    tweets.append(tweeet)
+                })
+            })
+            
+            completion(tweets, nil)
+            
         }) { (error) in
             completion(nil, error)
         }
