@@ -9,6 +9,7 @@
 import UIKit
 import Accounts
 import RealmSwift
+import SDWebImage
 
 class HomeViewController: UIViewController {
     
@@ -130,9 +131,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.followerName.text = followers[indexPath.row].followerName
             cell.followerHandle.text = "@" + followers[indexPath.row].followerHandle
             cell.followerBio.text = followers[indexPath.row].followerBio
+            cell.followerImage.sd_setImage(with: URL(string: followers[indexPath.row].followerProfileImage))
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gridFollowerCell", for: indexPath) as! GridFollowerCell
+            cell.followerImage.sd_setImage(with: URL(string: followers[indexPath.row].followerProfileImage))
             cell.followerName.text = followers[indexPath.row].followerName
             cell.followerHandle.text = "@" + followers[indexPath.row].followerHandle
             return cell
