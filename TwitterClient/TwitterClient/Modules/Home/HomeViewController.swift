@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var followers = [Follower]()
     var isListView = true
     
     override func viewDidLoad() {
@@ -46,12 +47,34 @@ class HomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.getFollowers()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Show the navigation bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
+}
+
+// MARK:- Handle Fetch Data
+extension HomeViewController {
+    
+    private func getFollowers() {
+        TwitterManager.sharedInstance.getCurrentUserFollowers { [unowned self] (followers, error) in
+            if error != nil {
+                print("Error \(String(describing: error!))")
+                return
+            }
+            
+            self.followers = followers!
+            self.collectionView.reloadData()
+        }
+    }
+    
 }
 
 // MARK:- IBActions
@@ -98,13 +121,15 @@ extension HomeViewController {
 // MARK:- collectionview Delegate and DataSource
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return followers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if isListView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "listFollowerCell", for: indexPath) as! ListFollowerCell
-            cell.followerBio.text = "Test String for test dynamic cell size"
+            cell.followerName.text = followers[indexPath.row].followerName
+            cell.followerHandle.text = "@" + followers[indexPath.row].followerHandle
+            cell.followerBio.text = followers[indexPath.row].followerBio
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gridFollowerCell", for: indexPath) as! GridFollowerCell
@@ -115,7 +140,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
         if isListView {
-            let string = "Test String for test dynamic cell size"
+            let string = followers[indexPath.row].followerBio
             
             let approximateSizeWidth = self.view.frame.width - 68
             let size = CGSize(width: approximateSizeWidth, height: 1000)

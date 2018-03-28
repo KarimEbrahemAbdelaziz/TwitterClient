@@ -19,7 +19,7 @@ protocol LoginTwitterApiManager {
 
 protocol UserInformationApiManager {
     func getCurrentUserInformation(completion:  @escaping (_ : CurrentUser?, _: Error?)->Void)
-    func getCurrentUserFollowers(userId: String, completion:  @escaping (_ : [Follower]?, _: Error?)->Void)
+    func getCurrentUserFollowers(completion:  @escaping (_ : [Follower]?, _: Error?)->Void)
 }
 
 class TwitterManager: LoginTwitterApiManager, UserInformationApiManager {
@@ -118,7 +118,8 @@ class TwitterManager: LoginTwitterApiManager, UserInformationApiManager {
         }
     }
     
-    func getCurrentUserFollowers(userId: String, completion:  @escaping (_ : [Follower]?, _: Error?)->Void) {
+    func getCurrentUserFollowers( completion:  @escaping (_ : [Follower]?, _: Error?)->Void) {
+        let userId = CurrentUser.getCurrentUserFromDatabase().userId
         swifter.getUserFollowers(for: .id(userId), cursor: nil, count: Constants.UserNumbers.numberOfFollowers, skipStatus: nil, includeUserEntities: nil, success: { (followersObject, _, _) in
             
             var followers = [Follower]()
