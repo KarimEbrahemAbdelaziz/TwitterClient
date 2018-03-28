@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Accounts
+import RealmSwift
 
 class HomeViewController: UIViewController {
     
@@ -35,3 +37,63 @@ class HomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 }
+
+// MARK:- IBActions
+extension HomeViewController {
+    
+    @IBAction func logoutAction(_ sender: UIButton) {
+        let accountStore = ACAccountStore()
+        let accountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
+        let twitterAccounts = accountStore.accounts(with: accountType)!
+        
+        let currentAccountName = CurrentUser.getCurrentUserFromDatabase().userName
+        var accountToRemove = ACAccount()
+        for account in twitterAccounts {
+            let accountInSettings = account as! ACAccount
+            print(accountInSettings.userFullName)
+            if accountInSettings.userFullName == currentAccountName {
+                accountToRemove = accountInSettings
+                break
+            }
+        }
+        
+        accountStore.removeAccount(accountToRemove) { (isDeleted, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+                
+            if isDeleted {
+                print("Deleted Success")
+                let realm = try! Realm()
+                try? realm.write {
+                    realm.deleteAll()
+                }
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print("Deleted Failed")
+            }
+        }
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

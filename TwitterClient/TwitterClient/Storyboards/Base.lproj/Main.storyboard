@@ -90,12 +90,21 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UsR-Xt-0me">
+                                        <rect key="frame" x="16" y="14" width="32" height="32"/>
+                                        <state key="normal" image="logout"/>
+                                        <connections>
+                                            <action selector="logoutAction:" destination="RFh-YA-l5g" eventType="touchUpInside" id="G6x-p9-e3d"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="47Z-kl-gYc"/>
                                     <constraint firstItem="os1-9c-Ls1" firstAttribute="centerY" secondItem="9l6-S7-VOe" secondAttribute="centerY" id="Hj2-km-uFY"/>
+                                    <constraint firstItem="UsR-Xt-0me" firstAttribute="centerY" secondItem="9l6-S7-VOe" secondAttribute="centerY" id="mV4-NM-iSa"/>
                                     <constraint firstItem="os1-9c-Ls1" firstAttribute="centerX" secondItem="9l6-S7-VOe" secondAttribute="centerX" id="nY7-vi-TYt"/>
+                                    <constraint firstItem="UsR-Xt-0me" firstAttribute="leading" secondItem="9l6-S7-VOe" secondAttribute="leading" constant="16" id="whj-K5-eZN"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -114,6 +123,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logout" width="32" height="32"/>
         <image name="twitter-logo" width="500" height="500"/>
     </resources>
 </document>
