@@ -30,6 +30,8 @@
 		43F34C462069D2B000DFE080 /* SwifteriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 43F34C3E2069D2A500DFE080 /* SwifteriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43F34C4A2069EA7200DFE080 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F34C492069EA7200DFE080 /* Follower.swift */; };
 		43F34C4C2069F7BA00DFE080 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F34C4B2069F7BA00DFE080 /* Tweet.swift */; };
+		43FFB80D206C07B1005FF560 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FFB80C206C07B1005FF560 /* SplashViewController.swift */; };
+		43FFB80F206C088D005FF560 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FFB80E206C088D005FF560 /* Splash.storyboard */; };
 		78B02264484668F8A2AA1977 /* Pods_TwitterClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B6B32CDA67B0BDFA908048 /* Pods_TwitterClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,8 @@
 		43F34C332069D2A500DFE080 /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = "Swifter-master/Swifter.xcodeproj"; sourceTree = "<group>"; };
 		43F34C492069EA7200DFE080 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		43F34C4B2069F7BA00DFE080 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		43FFB80C206C07B1005FF560 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		43FFB80E206C088D005FF560 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		50B03C6319286A7A584A5C88 /* Pods-TwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 		91B6B32CDA67B0BDFA908048 /* Pods_TwitterClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FE8F2AAA4E3B705FF356CF /* Pods-TwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterClient/Pods-TwitterClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			children = (
 				43E2A18920667F5D00E21B72 /* LaunchScreen.storyboard */,
 				43E2A18420667F5D00E21B72 /* Main.storyboard */,
+				43FFB80E206C088D005FF560 /* Splash.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 		43E2A19320667FD000E21B72 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				43FFB807206C078A005FF560 /* LaunchScreen */,
 				43F34C1A2069D05600DFE080 /* Home */,
 				43E2A1AB2066BE4900E21B72 /* Authentication */,
 			);
@@ -295,6 +301,14 @@
 				43F34C442069D2A500DFE080 /* SwifterTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		43FFB807206C078A005FF560 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				43FFB80C206C07B1005FF560 /* SplashViewController.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		4E61515EF93D51108FA2FF6F /* Frameworks */ = {
@@ -425,6 +439,7 @@
 				43E2A1B02066C19400E21B72 /* Info.plist in Resources */,
 				43E2A18B20667F5D00E21B72 /* LaunchScreen.storyboard in Resources */,
 				43E2A18820667F5D00E21B72 /* Assets.xcassets in Resources */,
+				43FFB80F206C088D005FF560 /* Splash.storyboard in Resources */,
 				43E2A18620667F5D00E21B72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +525,7 @@
 				438BA23D20686899007F3A5C /* Helpers.swift in Sources */,
 				43F34C4C2069F7BA00DFE080 /* Tweet.swift in Sources */,
 				438BA2512068966F007F3A5C /* LoginConfigurator.swift in Sources */,
+				43FFB80D206C07B1005FF560 /* SplashViewController.swift in Sources */,
 				43F34C1C2069D06B00DFE080 /* HomeViewController.swift in Sources */,
 				43E2A1AD2066BE6000E21B72 /* LoginViewController.swift in Sources */,
 				438BA2462068753D007F3A5C /* RealmConfig.swift in Sources */,
