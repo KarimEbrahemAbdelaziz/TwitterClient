@@ -10,5 +10,6 @@ target 'TwitterClient' do
   pod 'Sparrow/LaunchAnimation’, :git => 'https://github.com/IvanVorobei/Sparrow.git’
   pod 'RealmSwift'
   pod 'JGProgressHUD'
+  pod 'SDWebImage', '~> 4.0'
 
 end

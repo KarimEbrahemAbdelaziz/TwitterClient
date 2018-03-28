@@ -133,6 +133,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gridFollowerCell", for: indexPath) as! GridFollowerCell
+            cell.followerName.text = followers[indexPath.row].followerName
+            cell.followerHandle.text = "@" + followers[indexPath.row].followerHandle
             return cell
         }
     }
@@ -152,7 +154,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             //return CGSize(width: width, height: 170)
         } else {
-            return CGSize(width: (width - 40)/2, height: (width - 40)/2)
+            return CGSize(width: (width - 10)/2, height: (width - 20)/2)
         }
     }
     

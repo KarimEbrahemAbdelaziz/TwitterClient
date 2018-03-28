@@ -129,6 +129,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZFf-RM-7ch">
                                                             <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                                            <color key="backgroundColor" red="0.1529411765" green="0.90196078430000004" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="Pgm-XH-pyS"/>
                                                                 <constraint firstAttribute="height" constant="50" id="Q9w-Hs-Lh4"/>
@@ -191,15 +192,45 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridFollowerCell" id="2Mj-QI-zwI" customClass="GridFollowerCell" customModule="TwitterClient" customModuleProvider="target">
-                                        <rect key="frame" x="162.5" y="122" width="50" height="50"/>
+                                        <rect key="frame" x="81.5" y="122" width="212" height="177"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="212" height="177"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-dF-4aj">
-                                                    <rect key="frame" x="8" y="8" width="34" height="34"/>
-                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="8" y="8" width="196" height="161"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KOv-s9-v34">
+                                                            <rect key="frame" x="0.0" y="0.0" width="196" height="109"/>
+                                                            <color key="backgroundColor" red="0.1529411765" green="0.90196078430000004" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7f-zD-4jb">
+                                                            <rect key="frame" x="16" y="117" width="164" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn6-w5-Ncg">
+                                                            <rect key="frame" x="16" y="135" width="164" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="KOv-s9-v34" firstAttribute="leading" secondItem="SBO-dF-4aj" secondAttribute="leading" id="7JN-Ql-EKh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="KOv-s9-v34" secondAttribute="trailing" id="A79-Zd-NOM"/>
+                                                        <constraint firstItem="hn6-w5-Ncg" firstAttribute="leading" secondItem="SBO-dF-4aj" secondAttribute="leading" constant="16" id="NxS-nM-zvd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Y7f-zD-4jb" secondAttribute="trailing" constant="16" id="Odf-61-ou2"/>
+                                                        <constraint firstItem="Y7f-zD-4jb" firstAttribute="top" secondItem="KOv-s9-v34" secondAttribute="bottom" constant="8" id="bRj-ha-K2u"/>
+                                                        <constraint firstAttribute="trailing" secondItem="hn6-w5-Ncg" secondAttribute="trailing" constant="16" id="bXt-BQ-fMb"/>
+                                                        <constraint firstItem="Y7f-zD-4jb" firstAttribute="leading" secondItem="SBO-dF-4aj" secondAttribute="leading" constant="16" id="cgL-VG-1nO"/>
+                                                        <constraint firstItem="hn6-w5-Ncg" firstAttribute="top" secondItem="Y7f-zD-4jb" secondAttribute="bottom" id="oW6-Vm-STu"/>
+                                                        <constraint firstItem="KOv-s9-v34" firstAttribute="top" secondItem="SBO-dF-4aj" secondAttribute="top" id="skR-tD-5y0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="hn6-w5-Ncg" secondAttribute="bottom" constant="8" id="tYM-s5-Xhn"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="8"/>
@@ -214,6 +245,12 @@
                                             <constraint firstAttribute="trailing" secondItem="SBO-dF-4aj" secondAttribute="trailing" constant="8" id="WLi-TF-hk4"/>
                                             <constraint firstItem="SBO-dF-4aj" firstAttribute="leading" secondItem="2Mj-QI-zwI" secondAttribute="leading" constant="8" id="dWT-Rp-STd"/>
                                         </constraints>
+                                        <size key="customSize" width="212" height="177"/>
+                                        <connections>
+                                            <outlet property="followerHandle" destination="hn6-w5-Ncg" id="vB9-74-eUZ"/>
+                                            <outlet property="followerImage" destination="KOv-s9-v34" id="En6-CS-wWb"/>
+                                            <outlet property="followerName" destination="Y7f-zD-4jb" id="NgW-Lr-EU7"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
