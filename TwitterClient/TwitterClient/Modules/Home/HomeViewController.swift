@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private let refreshControl = UIRefreshControl()
     var followerInfo: Follower!
     var followers = [Follower]()
     var isListView = true
@@ -25,6 +26,23 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        refreshControl.tintColor = UIColor.white
+        let myAttribute = [ NSAttributedStringKey.foregroundColor: UIColor.white ]
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Followers...", attributes: myAttribute)
+        
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+    }
+    
+    @objc private func refreshWeatherData(_ sender: Any) {
+        // Fetch Weather Data
+        self.getFollowers()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -66,6 +84,7 @@ extension HomeViewController {
             }
             
             self.followers = followers!
+            self.refreshControl.endRefreshing()
             self.collectionView.reloadData()
         }
     }
