@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var followerInfo: Follower!
     var followers = [Follower]()
     var isListView = true
     
@@ -159,7 +160,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        followerInfo = followers[indexPath.row]
+        self.performSegue(withIdentifier: "FollowerInformation_Segue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FollowerInformation_Segue" {
+            let followerInfoVC = segue.destination as! FollowerInformationViewController
+            followerInfoVC.follower = followerInfo
+        }
     }
 }
 

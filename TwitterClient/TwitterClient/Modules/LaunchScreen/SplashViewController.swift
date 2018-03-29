@@ -33,10 +33,9 @@ class SplashViewController: UIViewController {
             let loginViewContoller = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! LoginViewController
             present(loginViewContoller, animated: true, completion: nil)
         } else {
-            let showItemStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let showItemNavController = showItemStoryboard.instantiateViewController(withIdentifier: "navControllerHome") as! UINavigationController
-            //let showItemVC = showItemNavController.topViewController as! HomeViewController
-            present(showItemNavController, animated: true, completion: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginViewContoller = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
+            present(loginViewContoller, animated: true, completion: nil)
         }
     }
 
