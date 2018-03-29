@@ -37,10 +37,10 @@ class HomeViewController: UIViewController {
             collectionView.addSubview(refreshControl)
         }
         // Configure Refresh Control
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshFollowersData(_:)), for: .valueChanged)
     }
     
-    @objc private func refreshWeatherData(_ sender: Any) {
+    @objc private func refreshFollowersData(_ sender: Any) {
         // Fetch Weather Data
         self.getFollowers()
     }
