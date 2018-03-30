@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListFollowerCell: UICollectionViewCell {
+class ListFollowerCell: UICollectionViewCell, ListCell {
 
     @IBOutlet weak var followerImage: UIImageView!
     @IBOutlet weak var followerName: UILabel!
@@ -19,10 +19,17 @@ class ListFollowerCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configureListCell(model: Follower) {
+        self.followerName.text = model.followerName
+        self.followerHandle.text = "@" + model.followerHandle
+        self.followerBio.text = model.followerBio
+        self.followerImage.sd_setImage(with: URL(string: model.followerProfileImage))
+    }
 
 }
 
-class GridFollowerCell: UICollectionViewCell {
+class GridFollowerCell: UICollectionViewCell, GridCell {
     
     @IBOutlet weak var followerImage: UIImageView!
     @IBOutlet weak var followerName: UILabel!
@@ -31,6 +38,12 @@ class GridFollowerCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func configureGridCell(model: Follower) {
+        self.followerImage.sd_setImage(with: URL(string: model.followerProfileImage))
+        self.followerName.text = model.followerName
+        self.followerHandle.text = "@" + model.followerHandle
     }
     
 }

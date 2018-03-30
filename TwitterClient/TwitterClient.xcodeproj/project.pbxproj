@@ -16,6 +16,9 @@
 		438BA2532068968E007F3A5C /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA2522068968E007F3A5C /* LoginPresenter.swift */; };
 		438BA2552068969D007F3A5C /* LoginViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA2542068969D007F3A5C /* LoginViewRouter.swift */; };
 		438BA25720689B03007F3A5C /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438BA25620689B03007F3A5C /* ViewRouter.swift */; };
+		43C551B0206E4D1100F94430 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C551AF206E4D1100F94430 /* HomeConfigurator.swift */; };
+		43C551B6206E4D1C00F94430 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C551B5206E4D1C00F94430 /* HomePresenter.swift */; };
+		43C551B8206E4D2800F94430 /* HomeViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C551B7206E4D2800F94430 /* HomeViewRouter.swift */; };
 		43E2A18120667F5D00E21B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E2A18020667F5D00E21B72 /* AppDelegate.swift */; };
 		43E2A18620667F5D00E21B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18420667F5D00E21B72 /* Main.storyboard */; };
 		43E2A18820667F5D00E21B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E2A18720667F5D00E21B72 /* Assets.xcassets */; };
@@ -107,6 +110,9 @@
 		438BA2522068968E007F3A5C /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		438BA2542068969D007F3A5C /* LoginViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewRouter.swift; sourceTree = "<group>"; };
 		438BA25620689B03007F3A5C /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		43C551AF206E4D1100F94430 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
+		43C551B5206E4D1C00F94430 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		43C551B7206E4D2800F94430 /* HomeViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRouter.swift; sourceTree = "<group>"; };
 		43E2A17D20667F5D00E21B72 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E2A18020667F5D00E21B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E2A18520667F5D00E21B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 		43E2A17F20667F5D00E21B72 /* TwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				43E2A18C20667F5D00E21B72 /* Info.plist */,
 				43E2A19820667FEB00E21B72 /* Application Files */,
 				43E2A19720667FE600E21B72 /* Resources */,
 				43E2A19620667FE000E21B72 /* Utilities */,
@@ -255,7 +262,6 @@
 		43E2A19820667FEB00E21B72 /* Application Files */ = {
 			isa = PBXGroup;
 			children = (
-				43E2A18C20667F5D00E21B72 /* Info.plist */,
 				43E2A18020667F5D00E21B72 /* AppDelegate.swift */,
 			);
 			path = "Application Files";
@@ -293,8 +299,11 @@
 		43F34C1A2069D05600DFE080 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				43F34C1B2069D06B00DFE080 /* HomeViewController.swift */,
 				43FFB810206C2239005FF560 /* FollowerCell.swift */,
+				43F34C1B2069D06B00DFE080 /* HomeViewController.swift */,
+				43C551AF206E4D1100F94430 /* HomeConfigurator.swift */,
+				43C551B5206E4D1C00F94430 /* HomePresenter.swift */,
+				43C551B7206E4D2800F94430 /* HomeViewRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -539,11 +548,13 @@
 			files = (
 				438BA2532068968E007F3A5C /* LoginPresenter.swift in Sources */,
 				43FFB819206CD0AF005FF560 /* FollowerInformationViewController.swift in Sources */,
+				43C551B6206E4D1C00F94430 /* HomePresenter.swift in Sources */,
 				438BA25720689B03007F3A5C /* ViewRouter.swift in Sources */,
 				43E2A1AF2066C04800E21B72 /* UIView+Extensions.swift in Sources */,
 				43FFB811206C2239005FF560 /* FollowerCell.swift in Sources */,
 				43F34C4A2069EA7200DFE080 /* Follower.swift in Sources */,
 				438BA23D20686899007F3A5C /* Helpers.swift in Sources */,
+				43C551B0206E4D1100F94430 /* HomeConfigurator.swift in Sources */,
 				43F34C4C2069F7BA00DFE080 /* Tweet.swift in Sources */,
 				438BA2512068966F007F3A5C /* LoginConfigurator.swift in Sources */,
 				43FFB80D206C07B1005FF560 /* SplashViewController.swift in Sources */,
@@ -555,6 +566,7 @@
 				43FFB81B206CE534005FF560 /* TweetCell.swift in Sources */,
 				43E2A18120667F5D00E21B72 /* AppDelegate.swift in Sources */,
 				438BA24220687364007F3A5C /* CurrentUser.swift in Sources */,
+				43C551B8206E4D2800F94430 /* HomeViewRouter.swift in Sources */,
 				438BA24B206883F1007F3A5C /* LoadingHud.swift in Sources */,
 				438BA2552068969D007F3A5C /* LoginViewRouter.swift in Sources */,
 				43E2A19C2066959C00E21B72 /* Constants.swift in Sources */,
@@ -706,7 +718,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FX2Z63PGT5;
-				INFOPLIST_FILE = "$(SRCROOT)/TwitterClient/Application Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/TwitterClient/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karimebrahem.TwitterClient;
@@ -724,7 +736,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FX2Z63PGT5;
-				INFOPLIST_FILE = "$(SRCROOT)/TwitterClient/Application Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/TwitterClient/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karimebrahem.TwitterClient;

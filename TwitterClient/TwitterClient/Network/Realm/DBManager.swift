@@ -14,7 +14,11 @@ protocol LoginDatabaseManager {
     func resetDatabase()
 }
 
-class DBManager: LoginDatabaseManager {
+protocol UserDatabaseManager {
+    
+}
+
+class DBManager: LoginDatabaseManager, UserDatabaseManager {
     
     private var database: Realm
     static let sharedInstance = DBManager()
