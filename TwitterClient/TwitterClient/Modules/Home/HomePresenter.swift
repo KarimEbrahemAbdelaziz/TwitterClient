@@ -45,6 +45,7 @@ protocol HomePresenter {
     func configureListCell(listCell: ListCell, row: Int)
     func configureGridCell(gridCell: GridCell, row: Int)
     func selectItemAt(row: Int)
+    func getFollowersInternet(completion:  @escaping (_ : Bool)->Void)
 }
 
 class HomePresenterImplementation: HomePresenter {
@@ -56,7 +57,7 @@ class HomePresenterImplementation: HomePresenter {
     
     // Normally add model here and would be file private as well
     fileprivate var followerInfo: Follower!
-    fileprivate var followers = [Follower]()
+    fileprivate var followers: Results<Follower>!
     fileprivate var isListView = true
     
     init(view: HomeView,
@@ -71,7 +72,7 @@ class HomePresenterImplementation: HomePresenter {
     
     // MARK: - LoginPresenter
     var followersCount: Int {
-        return followers.count
+        return followers != nil ? followers.count : 0
     }
     
     var isList: Bool {
@@ -87,26 +88,35 @@ class HomePresenterImplementation: HomePresenter {
     }
     
     func viewDidLoad() {
+        getFollowersInternet { [unowned self] (isUpdated) in
+            self.getFollowers()
+        }
         view?.setupViews()
     }
     
     func viewDidAppear() {
-        getFollowers()
+        //getFollowers()
     }
     
     func getFollowers() {
         showLoadingHud()
+        let followers = realmDBManager.getFollowersFromDatabase()
+        self.followers = followers
+        self.endRefreshControl()
+        dismissLoadingHud()
+        view?.refreshCollectionView()
+    }
+    
+    func getFollowersInternet(completion:  @escaping (_ : Bool)->Void) {
+        showLoadingHud()
         twitterUserInformationAPIManager.getCurrentUserFollowers { [unowned self] (followers, error) in
             if error != nil {
-                self.dismissLoadingHud()
-                self.presentAlert(title: "Error", message: "Can't get user followers. please try again later.")
+                completion(false)
                 return
             }
             
-            self.dismissLoadingHud()
-            self.followers = followers!
-            self.endRefreshControl()
-            self.view?.refreshCollectionView()
+            self.saveFollowersLocal(followers: followers!)
+            completion(true)
         }
     }
     
@@ -190,6 +200,9 @@ class HomePresenterImplementation: HomePresenter {
     }
     
     // MARK:- Private Functions
-    
+    fileprivate func saveFollowersLocal(followers: [Follower]) {
+        realmDBManager.saveFollowersToDatabase(followers: followers)
+        dismissLoadingHud()
+    }
     
 }

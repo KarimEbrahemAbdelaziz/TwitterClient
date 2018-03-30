@@ -15,7 +15,8 @@ protocol LoginDatabaseManager {
 }
 
 protocol UserDatabaseManager {
-    
+    func saveFollowersToDatabase(followers: [Follower])
+    func getFollowersFromDatabase() -> Results<Follower>
 }
 
 class DBManager: LoginDatabaseManager, UserDatabaseManager {
@@ -54,6 +55,17 @@ class DBManager: LoginDatabaseManager, UserDatabaseManager {
         try! database.write {
             database.delete(object)
         }
+    }
+    
+    func saveFollowersToDatabase(followers: [Follower]) {
+        for follower in followers {
+            saveToDatabase(object: follower)
+        }
+    }
+    
+    func getFollowersFromDatabase() -> Results<Follower> {
+        let followers = getAllFromDatabase(ofType: Follower.self)
+        return followers
     }
     
 }

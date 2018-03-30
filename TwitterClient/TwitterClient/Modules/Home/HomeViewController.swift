@@ -32,7 +32,9 @@ class HomeViewController: UIViewController {
     
     @objc private func refreshFollowersData(_ sender: Any) {
         // Fetch Weather Data
-        presenter.getFollowers()
+        presenter.getFollowersInternet { [unowned self] (isUpdated) in
+            self.presenter.getFollowers()
+        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

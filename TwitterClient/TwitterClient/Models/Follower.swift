@@ -18,7 +18,6 @@ class Follower: Object {
     @objc dynamic var followerName = ""
     @objc dynamic var followerHandle = ""
     @objc dynamic var followerBio = ""
-    var tweets = List<Tweet>()
     
     convenience required init(followerId: String, followerProfileImage: String, followerBackgroundImage: String?, followerName: String, followerHandle: String, followerBio: String) {
         self.init()
